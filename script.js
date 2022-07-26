@@ -21,3 +21,44 @@ const listaDeLivros = [
     anoDePublicacao: 1999,
   },
 ];
+
+
+let ulDoHtml = document.querySelector(".container")
+ulDoHtml.innerHTML = ""
+
+function adicionarLivros (arr){
+    for(let i = 0; i < arr.length; i++){
+
+      let nome = arr[i].nome
+      let anoDePublicacao = arr[i].anoDePublicacao
+
+      let liDoLivro = document.createElement("li")
+      let nomeDoLivro = document.createElement("p")
+      let anoDoLivro  = document.createElement("p")
+
+      if(anoDePublicacao <= 1997){
+        liDoLivro.classList.add("destaque")
+        nomeDoLivro.innerText  = nome
+        anoDoLivro.innerText   = anoDePublicacao
+        liDoLivro.appendChild(nomeDoLivro)
+        liDoLivro.appendChild(anoDoLivro)
+        ulDoHtml.appendChild(liDoLivro)
+      }else if(anoDePublicacao >= 2000){
+        liDoLivro.classList.add("destaque")
+        nomeDoLivro.innerText  = nome
+        anoDoLivro.innerText   = anoDePublicacao
+        liDoLivro.appendChild(nomeDoLivro)
+        liDoLivro.appendChild(anoDoLivro)
+        ulDoHtml.appendChild(liDoLivro)
+      }else{
+        nomeDoLivro.innerText  = nome
+        anoDoLivro.innerText   = anoDePublicacao
+        liDoLivro.appendChild(nomeDoLivro)
+        liDoLivro.appendChild(anoDoLivro)
+        ulDoHtml.appendChild(liDoLivro)
+
+      }
+
+    }
+}
+adicionarLivros(listaDeLivros)
